@@ -26,12 +26,46 @@ const UIController = (() => {
 // Global Controller 
 const controller = ((budgetCtrl, UICtrl) => {
 
-	document.querySelector('.add__btn').addEventListener(click, () => {
+	var ctrlAddItem = () => {
 
 		//1. Get the fiel input data 
-		//2. Add the item to the budget controller 
-		//3. Add the item to the budget controller 
 
-	});
+		//2. Add the item to the budget controller 
+
+		//3. Add the items to the UI 
+
+		//4. Calulate the budget  
+
+		//5. Display the budget in the UI 
+		console.log('it works ')
+
+	};
+
+	document.querySelector('.add__btn').addEventListener('click',ctrlAddItem);
+
+	document.addEventListener('keypress', (event) =>{
+		if (event.keycode === 13 || event.which === 13 ) {
+			ctrlAddItem();
+			
+		};
+	})
 
 })(budgetController, UIController);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
