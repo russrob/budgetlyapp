@@ -16,10 +16,30 @@ const budgetController = (() => {
 	
 })();
 
-// UIController 
+// UIController  
 const UIController = (() => {
+	var DOMstrings = {
+		inputType: '.add__type',
+		inputDescription: '.add__description',
+		inputValue: '.add__value'
+	
+
+	};
+
+	return{
+		getInput: () => {
+			return{
+			 type: document.querySelector(DOMstrings.inputType).value,//will be either inc(for income) or exp(for expense)
+			 description: document.querySelector(DOMstrings.inputDescription).value,
+			 value: document.querySelector(DOMstrings.inputValue).value
+			}
 
 
+			//
+			
+		}
+		//return the DOMstrings that is
+	}
 })();
 
 
@@ -28,7 +48,9 @@ const controller = ((budgetCtrl, UICtrl) => {
 
 	var ctrlAddItem = () => {
 
-		//1. Get the fiel input data 
+		//1. Get the field input data 
+		var input = UICtrl.getInput();
+		console.log(input);
 
 		//2. Add the item to the budget controller 
 
@@ -37,17 +59,17 @@ const controller = ((budgetCtrl, UICtrl) => {
 		//4. Calulate the budget  
 
 		//5. Display the budget in the UI 
-		console.log('it works ')
 
 	};
-
+// Added event listener on the click button 
 	document.querySelector('.add__btn').addEventListener('click',ctrlAddItem);
-
+// Added event listener on the keycode aka the return button
 	document.addEventListener('keypress', (event) =>{
 		if (event.keycode === 13 || event.which === 13 ) {
 			ctrlAddItem();
 			
 		};
+
 	})
 
 })(budgetController, UIController);
